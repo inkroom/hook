@@ -1,0 +1,13 @@
+version: '3'
+services:
+        hook:
+                container_name: hook
+                build:
+                        context: ./
+                        dockerfile: ./DockerFile
+                ports:
+                - 9968:9968
+                volumes:
+                - /data/public/project/image:/public/project/image
+                - /data/public/project/list:/public/project/list
+                - /data/public/project/blog:/public/project/blog
