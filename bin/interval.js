@@ -18,7 +18,7 @@ setInterval(() => {
 
         if (p.id == 263783934) {//博客，直接拉取项目就行
 
-
+	   console.log('更新博客',new Date())
             SPAWN(`cd ${blogPath} && git pull`, function (error, stdout, stderr) {
                 if (error) {
                     console.error('blog',error);
@@ -34,7 +34,7 @@ setInterval(() => {
             // 首先获取当前新增的文件
 
             //更新项目
-            console.log('更新项目')
+            console.log('更新image项目',new Date())
 
             SPAWN(`cd ${imagePath} && git pull`, (error, stdout, stderr) => {
                 if (error) {
