@@ -85,7 +85,7 @@ setInterval(() => {
                     }
 
                     for (const key in addGroup) {
-                        if (Object.hasOwnProperty.call(addGroup, key)) {
+                        if (Object.hasOwnProperty.call(addGroup, key) && key !='list') {
                             const element = addGroup[key];
 
                             //读取文件，然后加到开头
