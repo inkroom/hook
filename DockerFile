@@ -1,9 +1,0 @@
-FROM node:12-alpine
-COPY . /app
-WORKDIR /app
-EXPOSE 9968
-VOLUME ["/public"]
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && apk add git
-RUN npm i 
-ENTRYPOINT npm run start
-

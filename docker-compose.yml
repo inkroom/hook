@@ -10,4 +10,15 @@ services:
                 volumes:
                 - /data/public/project/image:/public/project/image
                 - /data/public/project/list:/public/project/list
-                - /data/public/project/blog:/public/project/blog
+                - /data/public/project/blog:/public/project/blog\
+                environment:
+                - TZ=Asia/Shanghai
+                - COS_SECRET_ID=
+                - COS_SECRET_KEY=
+                - COS_BUCKET=
+                - COS_REGION=
+                - MINIO_ACCESS_KEY=
+                - MINIO_SECERT_KEY=
+                - MINIO_ENDPOINT=
+                - MINIO_BUCKET=
+                - MINIO_PREFIX=

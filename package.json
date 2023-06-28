@@ -7,10 +7,15 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "cos-nodejs-sdk-v5": "^2.12.1",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "got": "^11.2.0",
     "http-errors": "~1.6.3",
     "jade": "^1.11.0",
-    "morgan": "~1.9.1"
+    "minio": "^6.0.0",
+    "morgan": "~1.9.1",
+    "queue": "6.0.2",
+    "retry-as-promised": "^7.0.4"
   }
 }
