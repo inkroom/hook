@@ -38,12 +38,15 @@ router.post('/flutter', function (req, res, next) {
 
         let assets = {
           name:json.release.assets[i].name,
-          url:`https://js.xxooo.ml/${json.release.assets[i].browser_download_url}`
+          url:` https://ghproxy.com/${json.release.assets[i].browser_download_url}`
 
           // url:`https://hub.gitmirror.com/${json.release.assets[i].browser_download_url}`
         };
 
         download({id:470989261,tag:tag,assets:assets})
+
+        // https://ghproxy.com/https://github.com/inkroom/flutter-netease-music/releases/download/v0.10.2/quiet-android-v0.10.2-armeabi-v7a.apk
+
         // interval.push({id:470989261,tag:tag,assets:assets})
 
         // https://js.xxooo.ml/https://github.com/inkroom/flutter-netease-music/releases/download/v0.9.7/quiet-android-v0.9.7-arm64-v8a.apk

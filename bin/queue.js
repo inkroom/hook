@@ -84,6 +84,15 @@ function downloadRelease(p) {
 
                 }
 
+                let type = {
+                    "apk": 'application/vnd.android.package-archive',
+                    'json': 'application/json',
+                    'zip': 'application/zip',
+                    'deb': 'application/x-debian-package'
+                }
+
+                let contentType = type[fileName.substring(fileName.lastIndexOf('.') + 1)];
+
                 // 上传 到 对应服务器
                 // 上传到cos
                 cos.putObject({
@@ -91,6 +100,7 @@ function downloadRelease(p) {
                     Region: process.env.COS_REGION,    /* 必须 */
                     Key: fileKey,              /* 必须 */
                     StorageClass: 'STANDARD',
+                    ContentType: contentType,
                     Body: fs.createReadStream(cosFileName), // 上传文件对象
                     onProgress: function (progressData) {
                         progressData.fileName = fileName;
@@ -103,14 +113,9 @@ function downloadRelease(p) {
                         reject(p, err);
                     } else {
                         console.log("Cos Success", fileName);
-                        let type = {
-                            "apk": 'application/vnd.android.package-archive',
-                            'json': 'application/json',
-                            'zip': 'application/zip',
-                            'deb': 'application/x-debian-package'
-                        }
+
                         var metaData = {
-                            'Content-Type': type[fileName.substring(fileName.lastIndexOf('.') + 1)],
+                            'Content-Type': contentType,
                         }
 
                         // 上传到minio
